@@ -19,7 +19,7 @@ jobs:
         server: ${{ secrets.FTP_SERVER }}
         username: ${{ secrets.FTP_USERNAME_STAGING }}
         password: ${{ secrets.FTP_PASSWORD_STAGING }}
-        server-dir: public_html/staging.changetank.com.au/
+        server-dir: ./
         protocol: ftps
         exclude: |
           **/.git*
