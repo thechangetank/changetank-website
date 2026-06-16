@@ -1,0 +1,28 @@
+on:
+  push:
+    branches:
+      - main
+
+name: Deploy to Live Site
+
+jobs:
+  web-deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+    steps:
+    - name: Get latest code
+      uses: actions/checkout@v4
+
+    - name: Sync files to live site
+      uses: SamKirkland/FTP-Deploy-Action@v4.3.6
+      with:
+        server: ${{ secrets.FTP_SERVER }}
+        username: ${{ secrets.FTP_USERNAME_LIVE }}
+        password: ${{ secrets.FTP_PASSWORD_LIVE }}
+        server-dir: public_html/
+        protocol: ftps
+        exclude: |
+          **/.git*
+          **/.git*/**
+          **/.github/**
+          **/node_modules/**
