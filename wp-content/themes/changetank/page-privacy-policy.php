@@ -72,7 +72,7 @@ get_header();
 
     <!-- ============================================================
          BACK LINK
-         Simple navigation back to home — capabilities no CTA section on legal pages.
+         Simple navigation back to home — po CTA section on legal pages.
          ============================================================ -->
     <div class="privacy-backnav">
         <div class="container container-narrow">
@@ -84,70 +84,5 @@ get_header();
 
 </main><!-- /#main-content -->
 
-<style id="ct-privacy-styles">
-/* ---- Privacy page header ---- */
-.privacy-page-header {
-    background-color: var(--ct-cream);
-    padding: var(--space-xxl) 0 var(--space-xl);
-    border-bottom: 1px solid var(--ct-border);
-}
-.privacy-page-header h1 {
-    font-size: clamp(1.75rem, 3.5vw, 2.5rem);
-    margin: var(--space-sm) 0 var(--space-xs);
-    color: var(--ct-dark);
-}
-.privacy-page-header__updated {
-    margin: 0;
-}
-
-/* ---- Content area ---- */
-.privacy-content {
-    padding: var(--space-xxl) 0;
-}
-
-.entry-content h2 {
-    font-size: 1.375rem;
-    font-weight: 700;
-    margin: var(--space-xl) 0 var(--space-sm);
-    color: var(--ct-dark);
-}
-.entry-content h3 {
-    font-size: 1.125rem;
-    font-weight: 600;
-    margin: var(--space-lg) 0 var(--space-xs);
-    color: var(--ct-dark);
-}
-.entry-content p {
-    font-size: 1rem;
-    line-height: 1.8;
-    color: #333;
-    margin-bottom: var(--space-md);
-}
-.entry-content ul,
-.entry-content ol {
-    margin: 0 0 var(--space-md) var(--space-lg);
-    padding: 0;
-}
-.entry-content li {
-    font-size: 1rem;
-    line-height: 1.7;
-    color: #333;
-    margin-bottom: var(--space-xs);
-}
-.entry-content a {
-    color: var(--ct-orange);
-    text-decoration: underline;
-}
-.entry-content a:hover,
-.entry-content a:focus {
-    opacity: 0.75;
-    outline: none;
-}
-
-/* ---- Back nav ---- */
-.privacy-backnav {
-    padding: 0 0 var(--space-xxl);
-}
-</style>
 
 <?php get_footer(); ?>
