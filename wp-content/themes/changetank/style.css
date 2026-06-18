@@ -1,77 +1,594 @@
 /*
 Theme Name: ChangeTank
-Theme URI: https://changetank.com.au
-Author: MJ Johnston
-Description: The Change Tank official website theme
-Version: 0.1.0
+Theme URI: https://www.changetank.com.au
+Description: Custom theme for The Change Tank — management consulting, business transformation. Bold, confident, light aesthetic with DM Sans typography and orange brand accent.
+Author: The Change Tank
+Author URI: https://www.changetank.com.au
+Version: 2.0
 Requires at least: 6.0
+Tested up to: 7.0
+Requires PHP: 7.4
+License: Proprietary
+License URI: https://www.changetank.com.au
 Text Domain: changetank
 */
 
-* { box-sizing: border-box; margin: 0; padding: 0; }
+/* ============================================================
+   CUSTOM PROPERTIES
+   ============================================================ */
+
+:root {
+  /* Brand colours */
+  --ct-orange:     #F47B20;   /* PLACEHOLDER — MJ to confirm exact hex in Phase 3B */
+  --ct-white:      #ffffff;
+  --ct-cream:      #f7f6f3;
+  --ct-dark:       #1a1a1a;
+  --ct-grey:       #6b6b6b;
+  --ct-border:     #e5e5e5;
+
+  /* Typography */
+  --ct-font:       'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  /* Layout */
+  --ct-max-width:  1200px;
+  --ct-radius:     4px;
+
+  /* Spacing scale */
+  --space-xs:      0.25rem;   /*  4px */
+  --space-sm:      0.5rem;    /*  8px */
+  --space-md:      1rem;      /* 16px */
+  --space-lg:      1.5rem;    /* 24px */
+  --space-xl:      2rem;      /* 32px */
+  --space-2xl:     3rem;      /* 48px */
+  --space-3xl:     4rem;      /* 64px */
+  --space-xxl:     5rem;      /* 80px */
+}
+
+
+/* ============================================================
+   CSS RESET
+   ============================================================ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+
+/* ============================================================
+   BASE TYPOGRAPHY
+   ============================================================ */
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  color: #1a1a1a;
-  background: #fff;
+  font-family: var(--ct-font);
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--ct-dark);
+  background-color: var(--ct-white);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1 {
+  font-size: 48px;
+  line-height: 1.1;
+  font-weight: 700;
+  color: var(--ct-dark);
+  letter-spacing: -0.02em;
+}
+
+h2 {
+  font-size: 36px;
+  line-height: 1.2;
+  font-weight: 700;
+  color: var(--ct-dark);
+  letter-spacing: -0.01em;
+}
+
+h3 {
+  font-size: 24px;
+  line-height: 1.3;
+  font-weight: 600;
+  color: var(--ct-dark);
+}
+
+h4 {
+  font-size: 20px;
+  line-height: 1.4;
+  font-weight: 600;
+  color: var(--ct-dark);
+}
+
+h5 {
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 600;
+  color: var(--ct-dark);
+}
+
+h6 {
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 600;
+  color: var(--ct-dark);
+}
+
+p {
+  margin-bottom: 1rem;
+}
+
+p:last-child {
+  margin-bottom: 0;
+}
+
+a {
+  color: var(--ct-orange);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover,
+a:focus {
+  color: var(--ct-dark);
+  text-decoration: underline;
+}
+
+strong,
+b {
+  font-weight: 700;
+}
+
+em,
+i {
+  font-style: italic;
+}
+
+ul,
+ol {
+  padding-left: var(--space-xl);
+  margin-bottom: 1rem;
+}
+
+li {
+  margin-bottom: var(--space-xs);
+}
+
+blockquote {
+  border-left: 3px solid var(--ct-orange);
+  padding-left: var(--space-lg);
+  margin: var(--space-xl) 0;
+  color: var(--ct-grey);
+  font-size: 18px;
   line-height: 1.6;
 }
 
-.site-header {
-  background: #0a2540;
-  padding: 20px 40px;
+hr {
+  border: none;
+  border-top: 1px solid var(--ct-border);
+  margin: var(--space-2xl) 0;
 }
 
-.site-title a {
-  color: #fff;
-  text-decoration: none;
-  font-size: 1.5rem;
+
+/* ============================================================
+   BUTTON STYLES
+   ============================================================ */
+
+.btn-primary,
+.btn-secondary,
+.btn-text {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-family: var(--ct-font);
+  font-size: 14px;
   font-weight: 700;
-}
-
-.site-main {
-  max-width: 900px;
-  margin: 60px auto;
-  padding: 0 40px;
-}
-
-.hero {
-  text-align: center;
-  padding: 80px 0;
-}
-
-.hero h1 {
-  font-size: 2.8rem;
-  font-weight: 700;
-  color: #0a2540;
-  margin-bottom: 20px;
-  line-height: 1.2;
-}
-
-.hero p {
-  font-size: 1.2rem;
-  color: #444;
-  max-width: 600px;
-  margin: 0 auto 40px;
-}
-
-.cta-button {
-  display: inline-block;
-  background: #0a2540;
-  color: #fff;
-  padding: 14px 32px;
-  border-radius: 4px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
   text-decoration: none;
-  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  white-space: nowrap;
 }
 
-.cta-button:hover { background: #1a3a6a; }
+/* Primary: orange background, white text */
+.btn-primary {
+  background-color: var(--ct-orange);
+  color: var(--ct-white);
+  border: 2px solid var(--ct-orange);
+  padding: 0.875rem 2rem;
+  border-radius: var(--ct-radius);
+}
 
-.site-footer {
-  background: #f5f5f5;
+.btn-primary:hover,
+.btn-primary:focus {
+  background-color: var(--ct-dark);
+  border-color: var(--ct-dark);
+  color: var(--ct-white);
+  text-decoration: none;
+}
+
+/* Secondary: transparent background, orange border and text */
+.btn-secondary {
+  background-color: transparent;
+  color: var(--ct-orange);
+  border: 2px solid var(--ct-orange);
+  padding: 0.875rem 2rem;
+  border-radius: var(--ct-radius);
+}
+
+.btn-secondary:hover,
+.btn-secondary:focus {
+  background-color: var(--ct-orange);
+  color: var(--ct-white);
+  text-decoration: none;
+}
+
+/* Text link: no border/bg, orange with arrow */
+.btn-text {
+  background-color: transparent;
+  color: var(--ct-orange);
+  border: none;
+  padding: 0;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.btn-text::after {
+  content: ' →';
+}
+
+.btn-text:hover,
+.btn-text:focus {
+  color: var(--ct-dark);
+  text-decoration: none;
+}
+
+
+/* ============================================================
+   LAYOUT
+   ============================================================ */
+
+.container {
+  max-width: var(--ct-max-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--space-lg);
+  padding-right: var(--space-lg);
+}
+
+.container-narrow {
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--space-lg);
+  padding-right: var(--space-lg);
+}
+
+.section {
+  padding-top: var(--space-xxl);
+  padding-bottom: var(--space-xxl);
+}
+
+.section--cream {
+  background-color: var(--ct-cream);
+}
+
+.section--dark {
+  background-color: var(--ct-dark);
+  color: var(--ct-white);
+}
+
+.section--dark h1,
+.section--dark h2,
+.section--dark h3,
+.section--dark h4 {
+  color: var(--ct-white);
+}
+
+
+/* ============================================================
+   GRID
+   ============================================================ */
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 3rem;
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+/* Asymmetric hero layout: 55/45 text-left, image-right */
+.grid-hero {
+  display: grid;
+  grid-template-columns: 55fr 45fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+
+/* ============================================================
+   UTILITY CLASSES
+   ============================================================ */
+
+.text-orange {
+  color: var(--ct-orange);
+}
+
+.text-muted {
+  color: var(--ct-grey);
+}
+
+.text-small {
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.text-center {
   text-align: center;
-  padding: 30px;
-  color: #666;
-  font-size: 0.9rem;
-  margin-top: 80px;
+}
+
+.text-right {
+  text-align: right;
+}
+
+/* Eyebrow: small all-caps label, orange, above headings */
+.eyebrow {
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--ct-orange);
+  margin-bottom: var(--space-sm);
+}
+
+/* Visually hidden (screen-reader accessible) */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Flex utilities */
+.flex {
+  display: flex;
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.gap-sm  { gap: var(--space-sm); }
+.gap-md  { gap: var(--space-md); }
+.gap-lg  { gap: var(--space-lg); }
+.gap-xl  { gap: var(--space-xl); }
+
+/* Margin utilities */
+.mb-0   { margin-bottom: 0; }
+.mb-sm  { margin-bottom: var(--space-sm); }
+.mb-md  { margin-bottom: var(--space-md); }
+.mb-lg  { margin-bottom: var(--space-lg); }
+.mb-xl  { margin-bottom: var(--space-xl); }
+.mb-2xl { margin-bottom: var(--space-2xl); }
+
+.mt-md  { margin-top: var(--space-md); }
+.mt-lg  { margin-top: var(--space-lg); }
+.mt-xl  { margin-top: var(--space-xl); }
+
+/* Width utilities */
+.w-full { width: 100%; }
+
+/* Orange accent rule (horizontal divider in brand colour) */
+.accent-rule {
+  display: block;
+  width: 40px;
+  height: 3px;
+  background-color: var(--ct-orange);
+  margin-bottom: var(--space-lg);
+}
+
+.accent-rule--center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+/* ============================================================
+   RESPONSIVE — 1024px
+   ============================================================ */
+
+@media (max-width: 1024px) {
+  .container,
+  .container-narrow {
+    padding-left: var(--space-xl);
+    padding-right: var(--space-xl);
+  }
+
+  h1 {
+    font-size: 40px;
+  }
+
+  h2 {
+    font-size: 30px;
+  }
+
+  .grid-hero {
+    gap: 2.5rem;
+  }
+}
+
+
+/* ============================================================
+   RESPONSIVE — 768px (tablet / grid collapse point)
+   ============================================================ */
+
+@media (max-width: 768px) {
+  :root {
+    --space-xxl: 3.5rem;
+  }
+
+  h1 {
+    font-size: 34px;
+    letter-spacing: -0.01em;
+  }
+
+  h2 {
+    font-size: 26px;
+  }
+
+  h3 {
+    font-size: 22px;
+  }
+
+  .grid-2,
+  .grid-3,
+  .grid-4,
+  .grid-hero {
+    grid-template-columns: 1fr;
+  }
+
+  /* On mobile, image comes second in hero (after text) */
+  .grid-hero .hero-image {
+    order: 2;
+  }
+
+  .section {
+    padding-top: 3.5rem;
+    padding-bottom: 3.5rem;
+  }
+}
+
+
+/* ============================================================
+   RESPONSIVE — 480px (small mobile)
+   ============================================================ */
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 28px;
+  }
+
+  h2 {
+    font-size: 22px;
+  }
+
+  .container,
+  .container-narrow {
+    padding-left: var(--space-md);
+    padding-right: var(--space-md);
+  }
+
+  /* Buttons go full-width on small mobile */
+  .btn-primary,
+  .btn-secondary {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .section {
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+  }
+}
+
+
+/* ============================================================
+   WORDPRESS CORE OVERRIDES
+   ============================================================ */
+
+/* Remove default WP margin from last child in content areas */
+.entry-content > *:last-child {
+  margin-bottom: 0;
+}
+
+/* Alignment classes */
+.alignleft  { float: left;  margin-right: var(--space-lg); margin-bottom: var(--space-md); }
+.alignright { float: right; margin-left:  var(--space-lg); margin-bottom: var(--space-md); }
+.aligncenter {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: var(--space-md);
+}
+
+/* Clear fix */
+.clearfix::after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+/* Screen reader text (WordPress standard) */
+.screen-reader-text {
+  border: 0;
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+  word-wrap: normal !important;
 }
