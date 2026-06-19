@@ -43,56 +43,5 @@ get_header();
 
 </main><!-- /#main-content -->
 
-<style id="ct-404-styles">
-.not-found {
-    min-height: 60vh;
-    display: flex;
-    align-items: center;
-}
-.not-found__inner {
-    text-align: center;
-    padding-top: var(--space-xxl);
-    padding-bottom: var(--space-xxl);
-}
-.not-found__code {
-    display: block;
-    font-size: clamp(5rem, 15vw, 9rem);
-    font-weight: 800;
-    color: var(--ct-orange);
-    line-height: 1;
-    opacity: 0.15;
-    margin-bottom: var(--space-md);
-    letter-spacing: -0.05em;
-}
-.not-found__title {
-    font-size: clamp(1.75rem, 4vw, 2.5rem);
-    font-weight: 700;
-    margin: var(--space-sm) 0;
-    color: var(--ct-dark);
-}
-.not-found__message {
-    font-size: 1.0625rem;
-    line-height: 1.7;
-    max-width: 480px;
-    margin: 0 auto var(--space-xl);
-}
-.not-found__actions {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: var(--space-lg);
-    flex-wrap: wrap;
-}
-@media (max-width: 480px) {
-    .not-found__actions {
-        flex-direction: column;
-        align-items: center;
-    }
-    .not-found__actions .btn-primary {
-        width: 100%;
-        text-align: center;
-    }
-}
-</style>
 
 <?php get_footer(); ?>
